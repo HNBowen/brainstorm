@@ -12,7 +12,7 @@ import Graph from './Graph.jsx'
 class Session extends React.Component {
 
 
-  addNode() {
+  addChild() {
 
     const nodes = this.props.nodes;
     const links = this.props.links;
@@ -36,7 +36,7 @@ class Session extends React.Component {
               menuVisible={this.props.menuVisible}
               toggleClick={() => {this.props.menuVisible ? this.props.hideMenu() : this.props.showMenu()}}
         />
-        <button onClick={this.addNode.bind(this)}>Add Node</button>
+        <button onClick={this.addChild.bind(this)}>Add Node</button>
         <button className="add-comment" onClick={() => this.props.addComment('123', '345', '678', 'first comment', 'yassssss')}>New Session!</button>
         <ReactModal
           isOpen={this.props.detailViewVisible}
@@ -50,6 +50,8 @@ class Session extends React.Component {
                       links={this.props.links}
                       addLink={this.props.addLink}
                       addNode={this.props.addNode}
+                      setNode={this.props.setNode}
+                      updateNode={this.props.updateNode}
           />
         </ReactModal>
         <Graph nodes={this.props.nodes}
